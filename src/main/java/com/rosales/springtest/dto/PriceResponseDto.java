@@ -14,7 +14,7 @@ public class PriceResponseDto {
 
     private Long idProduct;
 
-    private Integer idBrand;
+    private Long idBrand;
 
     private Long idPriceRate;
 

@@ -22,6 +22,6 @@ public class PriceRequestDto {
 
     @NotNull
     @Min(1)
-    private Integer idBrand;
+    private Long idBrand;
 
 }

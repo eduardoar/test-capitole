@@ -35,13 +35,13 @@ public class PriceServiceTest {
     private static final LocalDateTime VALID_APPLICATION_DATE = LocalDateTime.parse("2020-06-14T10:00:00");
     private static final Long VALID_PRODUCT_ID = 35455L;
     private static final Long INVALID_PRODUCT_ID = 35456L;
-    private static final Integer VALID_BRAND_ID = 1;
+    private static final Long VALID_BRAND_ID = 1L;
 
     @BeforeEach
     void setup() {
         price = new Price();
         price.setIdPrice(1L);
-        price.setIdBrand(1);
+        price.setIdBrand(1L);
         price.setStartDate(LocalDateTime.parse("2020-06-14T10:00:00"));
         price.setEndDate(LocalDateTime.parse("2020-06-14T18:00:00"));
         price.setIdPriceRate(1L);

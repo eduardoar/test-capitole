@@ -45,7 +45,7 @@ public class PriceServiceImpl extends CRUDImpl<Price, Long> implements IPriceSer
         return priceResponseDTO;
     }
 
-    private Optional<Price> findPriceWithParameters(LocalDateTime applicationDate, Long idProduct, Integer idBrand) {
+    private Optional<Price> findPriceWithParameters(LocalDateTime applicationDate, Long idProduct, Long idBrand) {
         return priceRepository.findFirstByStartDateLessThanEqualAndEndDateGreaterThanEqualAndIdProductAndIdBrandOrderByPriorityDesc(
                 applicationDate,
                 applicationDate,

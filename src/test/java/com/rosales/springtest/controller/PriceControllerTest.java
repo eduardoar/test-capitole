@@ -10,14 +10,17 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 @SpringBootTest
 @AutoConfigureMockMvc
 public class PriceControllerTest {
     private final MockMvc mockMvc;
     private static final Long VALID_ID_PRODUCT = 35455L;
-    private static final Integer VALID_ID_BRAND = 1;
+    private static final Long VALID_ID_BRAND = 1L;
     private static final String PATH = "/api/v1/prices";
 
     @Autowired
@@ -67,7 +70,8 @@ public class PriceControllerTest {
         mockMvc.perform(MockMvcRequestBuilders
                         .get(PATH)
                         .params(params))
-                .andExpect(status().isBadRequest());
+                .andExpect(status().isBadRequest())
+                .andExpect(result -> assertTrue(result.getResolvedException() instanceof MethodArgumentNotValidException));
 
     }
 
